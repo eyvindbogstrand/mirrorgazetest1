@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gaze_dot_color">#FF3366</color>
+    <color name="gaze_dot_outer">#40FF3366</color>
+</resources>

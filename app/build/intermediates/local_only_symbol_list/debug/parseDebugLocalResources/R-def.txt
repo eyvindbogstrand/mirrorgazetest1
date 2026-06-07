@@ -1,0 +1,34 @@
+R_DEF: Internal format may change without notice
+local
+color gaze_dot_color
+color gaze_dot_outer
+drawable gaze_dot
+drawable gaze_dot_outer
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable rectangular_button
+drawable round_button
+id button1
+id button2
+id button3
+id button4
+id button5
+id buttonGrid
+id deleteBar
+id gazeDot
+id main
+id outputText
+id previewView
+id rootLayout
+id spaceBar
+id tvCalibrating
+id tvGazeStatus
+layout activity_eyestest1
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base.Theme.Test11mirrorpartnereyes
+style Theme.Test11mirrorpartnereyes
+xml backup_rules
+xml data_extraction_rules

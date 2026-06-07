@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Gaze-dot: En lys roed sirkel med gjennomsiktig kant
+    som viser hvor paa skjermen brukeren ser.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#FF3366" />
+    <stroke
+        android:width="3dp"
+        android:color="#80FFFFFF" />
+</shape>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    MirrorGazeTest1 - Hovedlayout
+
+    Basert paa Test11MirrorPartnerEyes GridLayout med:
+    - 5 knapper i speilvendt 3-2 formaasjon
+    - Midt-seksjon: outputText, spaceBar (NYTT ORD), deleteBar (SLETT TEKST)
+    - Overlay: Kamera-preview, gaze-dot, kalibreringstekst
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!--
+        EKSISTERENDE UI: GridLayout med 5 knapper + output/seksjon
+        Beholder DEN EKAKTE opprinnelige strukturen fra Test11MirrorPartnerEyes
+    -->
+    <GridLayout
+        android:id="@+id/buttonGrid"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:rowCount="2"
+        android:columnCount="3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Knapp 1 (Oeverst til hoeyre) -->
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="1"
+            android:background="@drawable/round_button" />
+
+        <!-- Knapp 2 (Oeverst i midten) -->
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="2"
+            android:background="@drawable/round_button" />
+
+        <!-- Knapp 3 (Oeverst til venstre) -->
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="3"
+            android:background="@drawable/round_button" />
+
+        <!-- Knapp 4 (Nederst til hoeyre) -->
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="4"
+            android:background="@drawable/round_button" />
+
+        <!-- Knapp 5 (Nederst til venstre) -->
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="5"
+            android:background="@drawable/round_button" />
+
+        <!-- Output-felt og barer (Nederst i midten) -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <!-- Output-felt -->
+            <TextView
+                android:id="@+id/outputText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Space-bar (Legg til mellomrom) -->
+            <Button
+                android:id="@+id/spaceBar"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="NYTT ORD"
+                android:background="@drawable/rectangular_button"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Slett-tekst-bar (Slett all tekst) -->
+            <Button
+                android:id="@+id/deleteBar"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="SLETT TEKST"
+                android:background="@drawable/rectangular_button" />
+        </LinearLayout>
+
+    </GridLayout>
+
+    <!--
+        NYE GAZE-ELEMENTER (overlay)
+    -->
+
+    <!-- Kamera-preview (lite, i hjoernet) -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Gaze-status (over kamera) -->
+    <TextView
+        android:id="@+id/tvGazeStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="11sp"
+        android:textColor="#AAAAAA"
+        android:background="#80000000"
+        android:padding="4dp"
+        app:layout_constraintTop_toBottomOf="@id/previewView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Kalibreringstekst (sentrert, over alt) -->
+    <TextView
+        android:id="@+id/tvCalibrating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Se rett frem!"
+        android:textSize="26sp"
+        android:textColor="#FFD700"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:background="#CC000000"
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Gaze-dot (flytende, viser hvor brukeren ser) -->
+    <View
+        android:id="@+id/gazeDot"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/gaze_dot"
+        android:visibility="visible"
+        android:elevation="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
