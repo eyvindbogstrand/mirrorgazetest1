@@ -4,7 +4,7 @@
             "outputFile": "com.example.test11mirrorpartnereyes.app-mergeDebugResources-37:/values-pt/values-pt.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\eyvin\\.gradle\\caches\\8.11.1\\transforms\\63768f5804ad3c138433c9e34467e229\\transformed\\core-1.15.0\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\eyvin\\.gradle\\caches\\9.4.1\\transforms\\6804d73a8e2362511a6efe071f37ce1a\\transformed\\core-1.15.0\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\eyvin\\.gradle\\caches\\8.11.1\\transforms\\82a9adfc80f5de8db82baeb7c02e40fe\\transformed\\appcompat-1.7.0\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\eyvin\\.gradle\\caches\\9.4.1\\transforms\\ad3794bce13f8908647f33c06bb4c1a8\\transformed\\appcompat-1.7.0\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

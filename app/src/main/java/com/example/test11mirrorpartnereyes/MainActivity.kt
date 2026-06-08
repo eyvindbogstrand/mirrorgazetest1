@@ -2,7 +2,6 @@ package com.example.test11mirrorpartnereyes
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.graphics.PointF
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -33,7 +32,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
     companion object {
         const val TAG = "MirrorGazeTest1"
         const val CAM_PERM = 1001
-        const val DWELL_MS = 500L
+        const val DWELL_MS = 700L
     }
 
     // ============================================================
@@ -67,7 +66,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
     private var sensitivityX = 0.8f
     private var sensitivityY = 0.6f
 
-    // Glatting
+    // Glatting - 0.35 gir mer responsivitet enn 0.15
     private var smoothX = 0.5f
     private var smoothY = 0.5f
 
@@ -81,7 +80,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
     private lateinit var tvCalibrating: TextView
     private lateinit var gazeDot: View
 
-    // Knapp-referanser (lettere aa finne med gaze)
+    // Knapp-referanser
     private lateinit var button1: Button
     private lateinit var button2: Button
     private lateinit var button3: Button
@@ -206,8 +205,9 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
     override fun onGaze(x: Float, y: Float) {
         if (!gazeActive) return
 
-        smoothX = 0.15f * x + 0.85f * smoothX
-        smoothY = 0.15f * y + 0.85f * smoothY
+        // EMA-glatting: 0.35 gir mer responsivitet enn 0.15
+        smoothX = 0.5f * x + 0.65f * smoothX
+        smoothY = 0.5f * y + 0.65f * smoothY
 
         if (calibrating) {
             handleCalibration(smoothX, smoothY)
@@ -279,14 +279,16 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
     // NORMAL GAZE -- knapp-valg med dwell-time
     // ============================================================
     private fun handleNormalGaze(rawX: Float, rawY: Float) {
+        // Konverter gaze til skjerm-koordinater (0-1)
         val screenX = 0.5f + (rawX - centerX) * sensitivityX
         val screenY = 0.5f + (rawY - centerY) * sensitivityY
 
-        val fixedX = 1f - screenX
+        // SPEILVEND: frontkamera speiler bildet, saa vi snur X
+        val gazeX = 1f - screenX
 
-        runOnUiThread { updateGazeDot(fixedX, screenY) }
+        runOnUiThread { updateGazeDot(gazeX, screenY) }
 
-        val buttonId = findButtonAt(fixedX, screenY)
+        val buttonId = findButtonAt(gazeX, screenY)
         val now = System.currentTimeMillis()
 
         if (buttonId != null) {
@@ -366,11 +368,12 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
     }
 
     private fun updateGazeDot(x: Float, y: Float) {
-        val parent = gazeDot.parent as? android.view.ViewGroup ?: return
-        val px = x * parent.width - gazeDot.width / 2f
-        val py = y * parent.height - gazeDot.height / 2f
-        gazeDot.x = px.coerceIn(0f, (parent.width - gazeDot.width).toFloat())
-        gazeDot.y = py.coerceIn(0f, (parent.height - gazeDot.height).toFloat())
+        // Bruk displayMetrics for aa matche findButtonAt()
+        val dm = resources.displayMetrics
+        val px = x * dm.widthPixels - gazeDot.width / 2f
+        val py = y * dm.heightPixels - gazeDot.height / 2f
+        gazeDot.x = px.coerceIn(0f, (dm.widthPixels - gazeDot.width).toFloat())
+        gazeDot.y = py.coerceIn(0f, (dm.heightPixels - gazeDot.height).toFloat())
     }
 
     // ============================================================

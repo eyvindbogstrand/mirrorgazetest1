@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    MirrorGazeTest1 - Hovedlayout
-
-    Basert paa Test11MirrorPartnerEyes GridLayout med:
-    - 5 knapper i speilvendt 3-2 formaasjon
-    - Midt-seksjon: outputText, spaceBar (NYTT ORD), deleteBar (SLETT TEKST)
-    - Overlay: Kamera-preview, gaze-dot, kalibreringstekst
--->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
+    <!-- NB: Ingen padding her! Gaze-koordinater maa matche skjermen piksel-for-piksel. -->
 
-    <!--
-        EKSISTERENDE UI: GridLayout med 5 knapper + output/seksjon
-        Beholder DEN EKAKTE opprinnelige strukturen fra Test11MirrorPartnerEyes
-    -->
     <GridLayout
         android:id="@+id/buttonGrid"
         android:layout_width="0dp"
@@ -102,7 +90,6 @@
             android:gravity="center"
             android:padding="10dp">
 
-            <!-- Output-felt -->
             <TextView
                 android:id="@+id/outputText"
                 android:layout_width="wrap_content"
@@ -111,7 +98,6 @@
                 android:gravity="center"
                 android:layout_marginBottom="10dp" />
 
-            <!-- Space-bar (Legg til mellomrom) -->
             <Button
                 android:id="@+id/spaceBar"
                 android:layout_width="200dp"
@@ -120,7 +106,6 @@
                 android:background="@drawable/rectangular_button"
                 android:layout_marginBottom="10dp" />
 
-            <!-- Slett-tekst-bar (Slett all tekst) -->
             <Button
                 android:id="@+id/deleteBar"
                 android:layout_width="200dp"
@@ -131,22 +116,16 @@
 
     </GridLayout>
 
-    <!--
-        NYE GAZE-ELEMENTER (overlay)
-    -->
-
-    <!-- Kamera-preview (lite, i hjoernet) -->
+    <!-- Kamera-preview (0x0dp - usynlig, tar ikke plass) -->
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
-        android:layout_width="100dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:visibility="invisible"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Gaze-status (over kamera) -->
+    <!-- Gaze-status -->
     <TextView
         android:id="@+id/tvGazeStatus"
         android:layout_width="wrap_content"

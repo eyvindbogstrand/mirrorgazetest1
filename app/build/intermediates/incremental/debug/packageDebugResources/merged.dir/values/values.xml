@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gaze_dot_color">#FF3366</color>
+    <color name="gaze_dot_outer">#40FF3366</color>
+    <item name="main" type="id"/>
+    <string name="app_name">MirrorGazeTest1</string>
+    <style name="Base.Theme.Test11mirrorpartnereyes" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.Test11mirrorpartnereyes" parent="Base.Theme.Test11mirrorpartnereyes"/>
+</resources>
