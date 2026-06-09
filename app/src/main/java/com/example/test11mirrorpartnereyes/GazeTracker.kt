@@ -153,7 +153,7 @@ class GazeTracker(private val context: Context) {
             offsetX += eyeLineAngle * 0.3f
 
             val sensitivityX = 5.0f
-            val sensitivityY = 4.0f
+            val sensitivityY = 6.0f
 
             var rawX = 0.5f + offsetX * sensitivityX
             var rawY = 0.5f + offsetY * sensitivityY

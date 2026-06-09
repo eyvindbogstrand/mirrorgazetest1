@@ -1,4 +1,4 @@
-#Mon Jun 08 20:32:56 CEST 2026
+#Tue Jun 09 19:59:57 CEST 2026
 base.0=C\:\\Users\\eyvin\\AndroidStudioProjects\\mirrorgazetest1-2\\mirrorgazetest1\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\eyvin\\AndroidStudioProjects\\mirrorgazetest1-2\\mirrorgazetest1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\eyvin\\AndroidStudioProjects\\mirrorgazetest1-2\\mirrorgazetest1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\3\\classes.dex

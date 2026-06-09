@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
     companion object {
         const val TAG = "MirrorGazeTest1"
         const val CAM_PERM = 1001
-        const val DWELL_MS = 700L
+        const val DWELL_MS = 400L
     }
 
     // ============================================================
@@ -87,6 +87,9 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
     private lateinit var button4: Button
     private lateinit var button5: Button
 
+    private lateinit var spaceBar: Button
+    private lateinit var deleteBar: Button
+
     // ============================================================
     // LIVSSYKLUS
     // ============================================================
@@ -104,6 +107,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
         button3 = findViewById(R.id.button3)
         button4 = findViewById(R.id.button4)
         button5 = findViewById(R.id.button5)
+        spaceBar = findViewById(R.id.spaceBar)
+        deleteBar = findViewById(R.id.deleteBar)
 
         // Klikk-lyttere
         button1.setOnClickListener { handleButtonClick(1) }
@@ -206,8 +211,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
         if (!gazeActive) return
 
         // EMA-glatting: 0.35 gir mer responsivitet enn 0.15
-        smoothX = 0.5f * x + 0.65f * smoothX
-        smoothY = 0.5f * y + 0.65f * smoothY
+        smoothX = 0.6f * x + 0.4f * smoothX  // var 0.5f * x + 0.5f
+        smoothY = 0.6f * y + 0.4f * smoothY  // var 0.5f * y + 0.5f
 
         if (calibrating) {
             handleCalibration(smoothX, smoothY)
@@ -326,6 +331,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
             3 -> handleButtonClick(3)
             4 -> handleButtonClick(4)
             5 -> handleButtonClick(5)
+            6 -> handleButtonClick(6)
+            7 -> handleButtonClick(7)
         }
     }
 
@@ -337,7 +344,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
         val metrics = resources.displayMetrics
         val buttons = listOf(
             1 to button1, 2 to button2, 3 to button3,
-            4 to button4, 5 to button5
+            4 to button4, 5 to button5,  6 to spaceBar,
+            7 to deleteBar
         )
         for ((id, btn) in buttons) {
             btn.getLocationOnScreen(loc)
@@ -356,14 +364,16 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
     private fun highlightButton(id: Int, progress: Float) {
         val btn = when (id) {
             1 -> button1; 2 -> button2; 3 -> button3
-            4 -> button4; 5 -> button5
+            4 -> button4; 5 -> button5  6 -> spaceBar
+            7 -> deleteBar
             else -> return
         }
         btn.alpha = 0.4f + (progress * 0.6f)
     }
 
     private fun resetHighlights() {
-        listOf(button1, button2, button3, button4, button5)
+        listOf(button1, button2, button3, button4, button5,
+            spaceBar, deleteBar)
             .forEach { it.alpha = 1.0f }
     }
 
