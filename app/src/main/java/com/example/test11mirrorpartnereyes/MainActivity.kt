@@ -24,7 +24,7 @@ import java.util.*
  * Basert paa Test11MirrorPartnerEyes med:
  * - EKSISTERENDE stavelogikk (firstClick, letterMap, handleLongPress)
  * - MediaPipe Face Landmarker for head pose estimation
- * - Dwell-time: 500ms blikk paa knapp = automatisk "klikk"
+ * - Dwell-time: 1000ms blikk paa knapp = automatisk "klikk"
  * - 3-stegs kalibrering (rett frem -> venstre -> opp)
  */
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTracker.Listener {
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
     companion object {
         const val TAG = "MirrorGazeTest1"
         const val CAM_PERM = 1001
-        const val DWELL_MS = 400L
+        const val DWELL_MS = 1000L
     }
 
     // ============================================================
@@ -211,8 +211,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
         if (!gazeActive) return
 
         // EMA-glatting: 0.35 gir mer responsivitet enn 0.15
-        smoothX = 0.6f * x + 0.4f * smoothX  // var 0.5f * x + 0.5f
-        smoothY = 0.6f * y + 0.4f * smoothY  // var 0.5f * y + 0.5f
+        smoothX = 0.45f * x + 0.55f * smoothX  // var 0.5f * x + 0.5f
+        smoothY = 0.45f * y + 0.55f * smoothY  // var 0.5f * y + 0.5f
 
         if (calibrating) {
             handleCalibration(smoothX, smoothY)
@@ -353,7 +353,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener, GazeTrack
             val t = loc[1].toFloat() / metrics.heightPixels
             val r = l + btn.width.toFloat() / metrics.widthPixels
             val b = t + btn.height.toFloat() / metrics.heightPixels
-            val margin = 0.02f
+            val margin = 0.05f
             if (x >= l - margin && x <= r + margin && y >= t - margin && y <= b + margin) {
                 return id
             }

@@ -77,7 +77,7 @@ class GazeTracker(private val context: Context) {
                 val provider = future.get()
 
                 val preview = Preview.Builder().build().also {
-                    it.setSurfaceProvider(previewView.surfaceProvider)
+                    it.surfaceProvider = previewView.surfaceProvider
                 }
 
                 val analysis = ImageAnalysis.Builder()
@@ -123,11 +123,12 @@ class GazeTracker(private val context: Context) {
     }
 
     private fun processFaceResult(result: FaceLandmarkerResult) {
-        if (result.faceLandmarks().isEmpty()) return
-        val landmarks = result.faceLandmarks()[0]
-        if (landmarks.size < 200) return
-
         try {
+            if (result.faceLandmarks().isEmpty()) return
+            val landmarks = result.faceLandmarks()[0]
+            if (landmarks.size < 200) return
+
+            // --- Steg 1: Finn ansiktssenter ---
             val leftEye = landmarks[LEFT_EYE_OUTER]
             val rightEye = landmarks[RIGHT_EYE_OUTER]
             val chin = landmarks[CHIN]
@@ -136,15 +137,22 @@ class GazeTracker(private val context: Context) {
             val faceCenterX = (leftEye.x() + rightEye.x() + chin.x() + forehead.x()) / 4f
             val faceCenterY = (leftEye.y() + rightEye.y() + chin.y() + forehead.y()) / 4f
 
+            // --- Steg 2: Finn nesens posisjon ---
             val noseTip = landmarks[NOSE_TIP]
             val noseBridge = landmarks[NOSE_BRIDGE]
 
             val noseX = (noseTip.x() + noseBridge.x()) / 2f
             val noseY = (noseTip.y() + noseBridge.y()) / 2f
 
-            var offsetX = noseX - faceCenterX
-            var offsetY = noseY - faceCenterY
+            // --- Steg 3: Beregn offset (normalisert med ansiktsstorrelse) ---
+            val faceWidth = abs(rightEye.x() - leftEye.x())
+            val faceHeight = abs(forehead.y() - chin.y())
+            val faceSize = (faceWidth + faceHeight) / 2f
 
+            var offsetX = (noseX - faceCenterX) / faceSize.coerceAtLeast(0.01f)
+            val offsetY = (noseY - faceCenterY) / faceSize.coerceAtLeast(0.01f)
+
+            // --- Steg 4: Yaw-kompensasjon ---
             val eyeLineAngle = atan2(
                 (rightEye.y() - leftEye.y()).toDouble(),
                 (rightEye.x() - leftEye.x()).toDouble()
@@ -152,8 +160,9 @@ class GazeTracker(private val context: Context) {
 
             offsetX += eyeLineAngle * 0.3f
 
-            val sensitivityX = 5.0f
-            val sensitivityY = 6.0f
+            // --- Steg 5: Konverter til normaliserte koordinater ---
+            val sensitivityX = 3.0f
+            val sensitivityY = 3.2f
 
             var rawX = 0.5f + offsetX * sensitivityX
             var rawY = 0.5f + offsetY * sensitivityY
