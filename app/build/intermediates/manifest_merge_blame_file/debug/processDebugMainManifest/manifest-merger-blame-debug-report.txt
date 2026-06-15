@@ -13,22 +13,22 @@
 10
 11    <!-- Kamera-tillatelse (paakrevd for oeyestyring) -->
 12    <uses-permission android:name="android.permission.CAMERA" />
-12-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:7:5-65
-12-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:7:22-62
+12-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:7:5-65
+12-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:7:22-62
 13
 14    <!-- Kamera er naa paakrevd (for head pose estimation) -->
 15    <uses-feature
-15-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:10:5-84
+15-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:10:5-84
 16        android:name="android.hardware.camera"
-16-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:10:19-57
+16-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:10:19-57
 17        android:required="true" />
-17-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:10:58-81
+17-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:10:58-81
 18    <uses-feature
-18-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:11:5-90
+18-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:11:5-90
 19        android:name="android.hardware.camera.front"
-19-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:11:19-63
+19-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:11:19-63
 20        android:required="true" />
-20-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:11:64-87
+20-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:11:64-87
 21
 22    <queries>
 22-->[androidx.camera:camera-extensions:1.4.1] C:\Users\eyvin\.gradle\caches\9.4.1\transforms\3a291003c009c567166384f01ff6072a\transformed\camera-extensions-1.4.1\AndroidManifest.xml:22:5-26:15
@@ -59,56 +59,56 @@
 35-->[com.google.android.datatransport:transport-backend-cct:3.1.0] C:\Users\eyvin\.gradle\caches\9.4.1\transforms\48f0670725f015aba6bc155f1135ac1d\transformed\transport-backend-cct-3.1.0\AndroidManifest.xml:26:22-64
 36
 37    <application
-37-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:13:5-40:19
+37-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:13:5-40:19
 38        android:allowBackup="true"
-38-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:14:9-35
+38-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:14:9-35
 39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 39-->[androidx.core:core:1.15.0] C:\Users\eyvin\.gradle\caches\9.4.1\transforms\6804d73a8e2362511a6efe071f37ce1a\transformed\core-1.15.0\AndroidManifest.xml:28:18-86
 40        android:dataExtractionRules="@xml/data_extraction_rules"
-40-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:15:9-65
+40-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:15:9-65
 41        android:debuggable="true"
 42        android:extractNativeLibs="false"
 42-->INJECTED
 43        android:fullBackupContent="@xml/backup_rules"
-43-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:16:9-54
+43-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:16:9-54
 44        android:icon="@mipmap/ic_launcher"
-44-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:17:9-43
+44-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:17:9-43
 45        android:label="@string/app_name"
-45-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:18:9-41
+45-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:18:9-41
 46        android:roundIcon="@mipmap/ic_launcher_round"
-46-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:19:9-54
+46-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:19:9-54
 47        android:supportsRtl="true"
-47-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:20:9-35
+47-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:20:9-35
 48        android:testOnly="true"
 49        android:theme="@style/Theme.Test11mirrorpartnereyes" >
-49-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:21:9-61
+49-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:21:9-61
 50
 51        <!-- Eyestest1-aktivitet (beholdes fra eksisterende) -->
 52        <activity
-52-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:25:9-27:39
+52-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:25:9-27:39
 53            android:name="com.example.test11mirrorpartnereyes.Eyestest1"
-53-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:26:13-38
+53-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:26:13-38
 54            android:exported="true" />
-54-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:27:13-36
+54-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:27:13-36
 55
 56        <!-- MainActivity - Hovedaktivitet med staving + oeyestyring -->
 57        <activity
-57-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:30:9-38:20
+57-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:30:9-38:20
 58            android:name="com.example.test11mirrorpartnereyes.MainActivity"
-58-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:31:13-41
+58-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:31:13-41
 59            android:exported="true"
-59-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:32:13-36
+59-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:32:13-36
 60            android:keepScreenOn="true" >
-60-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:33:13-40
+60-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:33:13-40
 61            <intent-filter>
-61-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:34:13-37:29
+61-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:34:13-37:29
 62                <action android:name="android.intent.action.MAIN" />
-62-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:35:17-69
-62-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:35:25-66
+62-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:35:17-69
+62-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:35:25-66
 63
 64                <category android:name="android.intent.category.LAUNCHER" />
-64-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:36:17-77
-64-->C:\Users\eyvin\AndroidStudioProjects\mirrorgazetest1-2\mirrorgazetest1\app\src\main\AndroidManifest.xml:36:27-74
+64-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:36:17-77
+64-->C:\Users\eyvin\OneDrive\Dokumenter\GitHub\mirrorgazetest1\app\src\main\AndroidManifest.xml:36:27-74
 65            </intent-filter>
 66        </activity>
 67
